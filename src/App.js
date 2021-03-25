@@ -1,5 +1,6 @@
 import Layout from "./components/layout/Layout";
-import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.scss";
 
 function App() {
   return (

@@ -5,7 +5,7 @@ import Contact from "../pages/contact/Contact";
 import LoginPage from "../pages/login/LoginPage";
 import ProductDetail from "../pages/home/ProductDetail";
 import { AuthProvider } from "../context/AuthContext";
-import Nav from "./Nav";
+import Navigation from "./Navigation";
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -20,7 +20,7 @@ export default function Layout() {
   return (
     <AuthProvider>
       <Router>
-        <Nav />
+        <Navigation />
         <Switch>
           <Route exact path="/">
             <Home />

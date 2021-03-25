@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL, PRODUCTS_ENDPOINT } from "../../constants/api";
 import ProductItem from "./ProductItem";
+import { Row, Container, Col } from "react-bootstrap";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -38,22 +39,26 @@ export default function Home() {
   if (error) return <div>an error happened</div>;
   // map over the product array and return some JSX for each item. Because the map method returns a new array, an array of JSX will be rendered.
   return (
-    <div className="container">
+    <Container>
       <Heading title="Home" />
-      {products.map(function (product) {
-        let { id, image, name, description, price } = product;
-        return (
-          <ProductItem
-            key={id}
-            id={id}
-            image={image}
-            name={name}
-            description={description}
-            price={price}
-          />
-        );
-      })}
-    </div>
+      <Row>
+        {products.map(function (product) {
+          let { id, image, name, description, price } = product;
+          return (
+            <Col xs={12} sm={6} md={3} className="mb-5">
+              <ProductItem
+                key={id}
+                id={id}
+                image={image}
+                name={name}
+                description={description}
+                price={price}
+              />
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
 }
 
